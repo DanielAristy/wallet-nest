@@ -6,7 +6,7 @@ import { DataSource } from 'typeorm';
 @Injectable()
 export class ClientService {
     constructor(private dataSource: DataSource ){}
-    async save(client: ClientEntity) : Promise<ClientEntity>{
+    async saveClient(client: ClientEntity) : Promise<ClientEntity>{
         const queryRunner = this.dataSource.createQueryRunner();
         await queryRunner.connect();
         await queryRunner.startTransaction();

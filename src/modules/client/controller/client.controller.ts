@@ -10,7 +10,6 @@ export class ClientController {
   @Post('client')
   async create(@Body() clientDto: ClientCreateDto): Promise<ClientEntity>{
     const clientEntity = new ClientEntity(clientDto);
-    console.log(clientEntity);
-    return this.service.save(clientEntity);
+    return this.service.saveClient(clientEntity);
   }
 }
