@@ -2,6 +2,7 @@ import { AccountEntity } from './AccountEntity';
 import { Column, Entity, Index, OneToOne } from "typeorm";
 import { AppEntity } from './AppEntity';
 import { v4 as uuid } from 'uuid';
+import { ClientCreateDto } from '../../dto/client-create.dto';
 
 @Index('client_cli_email_Idx', ['email'], { unique: true })
 @Index('pkclient', ['id'], { unique: true })
@@ -51,4 +52,14 @@ export class ClientEntity {
 
   @OneToOne(() => AppEntity, (app) => app.client, { cascade: ['insert'] })
   app: AppEntity;
+  constructor(client?: ClientCreateDto) {
+    this.fullName = client?.fullName ?? '';
+    this.email = client?.email ?? '';
+    this.phone = client?.phone ?? '';
+    this.photo = client?.photo ?? '';
+    this.createdAt = new Date();
+    this.updatedAt = null;
+    this.account = new AccountEntity();
+    this.app = new AppEntity();
+  }
 }
