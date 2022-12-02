@@ -1,4 +1,3 @@
-import { TokenEntity } from './common/postgres/entities/TokenEntity';
 import { MovementEntity } from './common/postgres/entities/MovementEntity';
 import { ClientEntity } from './common/postgres/entities/ClientEntity';
 import { AppEntity } from './common/postgres/entities/AppEntity';
@@ -18,7 +17,7 @@ import { ClientModule } from './modules/client/client.module';
       username: 'admin',
       password: 'admin',
       database: 'postgres',
-      entities: [AccountEntity, AppEntity, ClientEntity, MovementEntity, TokenEntity],
+      entities: [AccountEntity, AppEntity, ClientEntity, MovementEntity],
       synchronize: false,
     }),
     ClientModule,
