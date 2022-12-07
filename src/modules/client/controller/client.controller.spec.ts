@@ -18,8 +18,11 @@ describe('ClientController', () => {
             saveClient: jest.fn()
               .mockImplementation((client: ClientEntity) => {
                 return {};
-              })
-            ,
+              }),
+            getByEmail: jest.fn()
+            .mockImplementation((email: string) => {
+              return {};
+            }),
           }
         }
       ]
@@ -44,5 +47,11 @@ describe('ClientController', () => {
     controller.create(clientEntity);
     expect(service.saveClient).toHaveBeenCalled();
 
+  })
+
+  it('get user by email', () => {
+    const email = "jero@gmail.com";
+    controller.getByEmail(email);
+    expect(service.getByEmail).toHaveBeenCalled();
   })
 });
