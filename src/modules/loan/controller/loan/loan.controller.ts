@@ -10,4 +10,3 @@ export class LoanController {
         return this.service.createMovement(movement);
     }
 }
-    

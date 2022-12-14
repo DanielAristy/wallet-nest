@@ -13,7 +13,8 @@ export class AccountService {
 
     async getAccountById( id: string): Promise<AccountEntity>{
         const account = await this.accountRepository.findOne({
-            where: { id }
+            where: { id },
+            relations: { movementsIncome:true, movementsOutcome:true},
         })
 
         return Promise.resolve( account );

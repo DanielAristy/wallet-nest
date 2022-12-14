@@ -55,7 +55,7 @@ export class MovementEntity {
     this.idOutcome = movement?.idOutcome;
     this.reason = movement?.reason;
     this.amount = movement?.amount;
-    this.fees = movement?.fees;
+    this.fees = 60;
     if (movement?.date) {
       this.date = new Date(movement?.date)
     }else{
