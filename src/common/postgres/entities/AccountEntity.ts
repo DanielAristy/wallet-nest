@@ -54,9 +54,13 @@ export class AccountEntity {
   @JoinColumn([{ name: 'cli_id', referencedColumnName: 'id' }])
   client: ClientEntity;
 
-  @OneToMany(() => MovementEntity, (movement) => movement.income)
+  @OneToMany(() => MovementEntity, (movement) => movement.income, {
+    cascade: ['update'],
+  })
   movementsIncome: MovementEntity[];
 
-  @OneToMany(() => MovementEntity, (movement) => movement.outcome)
+  @OneToMany(() => MovementEntity, (movement) => movement.outcome,{
+    cascade: ['update'],
+  })
   movementsOutcome: MovementEntity[];
 }

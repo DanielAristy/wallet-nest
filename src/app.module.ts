@@ -8,6 +8,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './modules/main/controller/app.controller';
 import { ClientModule } from './modules/client/client.module';
 import { LoanModule } from './modules/loan/loan.module';
+import { AccountModule } from './modules/account/account.module';
 
 @Module({
   imports: [
@@ -23,6 +24,7 @@ import { LoanModule } from './modules/loan/loan.module';
     }),
     ClientModule,
     LoanModule,
+    AccountModule,
   ],
   controllers: [AppController],
   providers: [AppService],
