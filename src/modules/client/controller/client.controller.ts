@@ -9,20 +9,12 @@ export class ClientController {
 
   @Post('client')
   async create(@Body() clientDto: ClientCreateDto): Promise<ClientEntity>{
-    console.log(clientDto);
     const clientEntity = new ClientEntity(clientDto);
     return this.service.saveClient(clientEntity);
   }
 
   @Get("client/:email")
   async getByEmail(@Param("email") email: string): Promise<ClientEntity>{
-    console.log(email);
-    return this.service.getByEmail(email);
-  }
-
-  @Put("client/:id")
-  async getById(@Param("id") email: string): Promise<ClientEntity>{
-    console.log(email);
     return this.service.getByEmail(email);
   }
 }

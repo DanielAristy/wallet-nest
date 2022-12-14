@@ -7,6 +7,7 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './modules/main/controller/app.controller';
 import { ClientModule } from './modules/client/client.module';
+import { LoanModule } from './modules/loan/loan.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { ClientModule } from './modules/client/client.module';
       synchronize: false,
     }),
     ClientModule,
+    LoanModule,
   ],
   controllers: [AppController],
   providers: [AppService],
